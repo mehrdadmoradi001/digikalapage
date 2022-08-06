@@ -45,6 +45,10 @@ class Application extends StatelessWidget {
         _getOptions(),
         SizedBox(height: 8),
         _getAmazingOffer(),
+        SizedBox(height: 16),
+        _getFourImage(),
+        SizedBox(height: 8),
+        _getSmartWatch(),
       ],
     );
   }
@@ -136,19 +140,19 @@ class Application extends StatelessWidget {
       runAlignment: WrapAlignment.center,
       spacing: 18,
       children: [
-        forOption('images/w1.png', 'دیجی‌کالا مهر'),
-        forOption('images/w2.png', 'دیجی پلاس'),
-        forOption('images/w3.png', 'حراج پوشاک'),
-        forOption('images/w4.png', 'حراج ساعت'),
-        forOption('images/w5.png', 'ماموریت ها'),
-        forOption('images/w6.png', 'دیجی پی'),
-        forOption('images/w7.png', 'دیجی‌کالا جت'),
-        forOption('images/w7.png', 'بیشتر'),
+        _forOption('images/w1.png', 'دیجی‌کالا مهر'),
+        _forOption('images/w2.png', 'دیجی پلاس'),
+        _forOption('images/w3.png', 'حراج پوشاک'),
+        _forOption('images/w4.png', 'حراج ساعت'),
+        _forOption('images/w5.png', 'ماموریت ها'),
+        _forOption('images/w6.png', 'دیجی پی'),
+        _forOption('images/w7.png', 'دیجی‌کالا جت'),
+        _forOption('images/w7.png', 'بیشتر'),
       ],
     );
   }
 
-  forOption(String image, String strings) {
+  _forOption(String image, String strings) {
     return Column(
       children: [
         Container(
@@ -188,6 +192,24 @@ class Application extends StatelessWidget {
     );
   }
 
+  _setPaddingForLeftWidget(
+      {EdgeInsetsGeometry? edgeInsets,
+      String? string,
+      double? FontSize,
+      FontWeight? FontWeight,
+      Color? ColorType,
+      TextDirection? DirectionType}) {
+    return Padding(
+      padding: edgeInsets!,
+      child: Text(
+        string!,
+        style: TextStyle(
+            fontSize: FontSize, fontWeight: FontWeight, color: ColorType),
+        textDirection: DirectionType,
+      ),
+    );
+  }
+
   Widget _leftWidgetAmazingOffer() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -206,16 +228,12 @@ class Application extends StatelessWidget {
             width: 170,
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 16, left: 24),
-                  child: Text(
-                    'شگفت‌انگیز اختصاصی اپ',
-                    style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.red),
-                  ),
-                ),
+                _setPaddingForLeftWidget(
+                    edgeInsets: EdgeInsets.only(top: 16, left: 24),
+                    string: 'شگفت‌انگیز اختصاصی اپ',
+                    FontSize: 11,
+                    FontWeight: FontWeight.w800,
+                    ColorType: Colors.red),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Image(
@@ -224,48 +242,36 @@ class Application extends StatelessWidget {
                     height: 150,
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: Text(
-                    'کفش زنانه چرم مدل پرستو کد 9954',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 11,
-                        color: Colors.black
-                    ),
-                    textDirection: TextDirection.rtl,
-                  ),
+                _setPaddingForLeftWidget(
+                  edgeInsets: EdgeInsets.symmetric(horizontal: 12),
+                  string: 'کفش زنانه چرم مدل پرستو کد 9954',
+                  FontWeight: FontWeight.w600,
+                  FontSize: 11,
+                  DirectionType: TextDirection.rtl,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 18,top: 4),
-                  child: Text(
-                    'تنها 1 عدد در انبار باقیست',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 10,
-                        color: Colors.red),
-                    textDirection: TextDirection.rtl,
-                  ),
+                _setPaddingForLeftWidget(
+                  edgeInsets: EdgeInsets.only(left: 18, top: 4),
+                  string: 'تنها 1 عدد در انبار باقیست',
+                  FontWeight: FontWeight.bold,
+                  FontSize: 10,
+                  ColorType: Colors.red,
+                  DirectionType: TextDirection.rtl,
                 ),
                 Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 16, top: 12),
-                      child: Text(
-                        'تومان',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 10),
-                        textDirection: TextDirection.rtl,
-                      ),
+                    _setPaddingForLeftWidget(
+                      edgeInsets: EdgeInsets.only(left: 16, top: 12),
+                      string: 'تومان',
+                      FontWeight: FontWeight.w800,
+                      FontSize: 10,
+                      DirectionType: TextDirection.rtl,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 4, top: 10),
-                      child: Text(
-                        '835,000',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 12),
-                        textDirection: TextDirection.rtl,
-                      ),
+                    _setPaddingForLeftWidget(
+                      edgeInsets: EdgeInsets.only(left: 4, top: 10),
+                      string: '835,000',
+                      FontWeight: FontWeight.bold,
+                      FontSize: 12,
+                      DirectionType: TextDirection.rtl,
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 10, left: 14),
@@ -279,15 +285,12 @@ class Application extends StatelessWidget {
                         child: Container(
                           width: 40,
                           height: 20,
-                          child: Padding(
-                            padding: EdgeInsets.only(left: 8, top: 2),
-                            child: Text(
-                              '33%',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12),
-                            ),
+                          child: _setPaddingForLeftWidget(
+                            edgeInsets: EdgeInsets.only(left: 8, top: 2),
+                            string: '33%',
+                            FontWeight: FontWeight.bold,
+                            FontSize: 12,
+                            ColorType: Colors.white,
                           ),
                         ),
                       ),
@@ -305,15 +308,11 @@ class Application extends StatelessWidget {
                         decorationThickness: 2),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 70,top: 15),
-                  child: Text(
-                    '02:48:28',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
-                  ),
+                _setPaddingForLeftWidget(
+                  edgeInsets: EdgeInsets.only(right: 70, top: 15),
+                  string: '02:48:28',
+                  FontSize: 14,
+                  ColorType: Colors.grey[600],
                 ),
               ],
             ),
@@ -357,6 +356,127 @@ class Application extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  _ForImage(String string) {
+    return Column(
+      children: [
+        Container(
+          width: 170,
+          height: 120,
+          margin: EdgeInsets.all(4),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Image(
+              image: AssetImage('images/$string.jpg'),
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _getFourImage() {
+    return Wrap(
+      alignment: WrapAlignment.center,
+      children: [
+        _ForImage('1'),
+        _ForImage('2'),
+        _ForImage('3'),
+        _ForImage('4'),
+      ],
+    );
+  }
+
+  Widget _getSmartWatch() {
+    return Column(
+      children: [
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                getTextSmartWatch(
+                    edgeInsets: EdgeInsets.only(right: 16, top: 20),
+                    string: 'ساعت هوشمند',
+                    FontSize: 14,
+                    FontWeight: FontWeight.w600,
+                    ColorType: Colors.black),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                getTextSmartWatch(
+                    edgeInsets: EdgeInsets.only(right: 16, top: 4),
+                    string: 'بر اساس بازدید‌های شما',
+                    FontSize: 10,
+                    ColorType: Colors.grey[600]),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+        Wrap(
+          alignment: WrapAlignment.center,
+          children: [
+            _getImageSmartWatch('m1'),
+            _getContainerLine(100),
+            _getImageSmartWatch('m2'),
+            _getContainerLine(100),
+            _getImageSmartWatch('m3'),
+            _getImageSmartWatch('m4'),
+            _getContainerLine(100),
+            _getImageSmartWatch('m5'),
+            _getContainerLine(100),
+            _getImageSmartWatch('m6'),
+            _getImageSmartWatch('m7'),
+            _getContainerLine(80),
+            _getImageSmartWatch('m8'),
+            _getContainerLine(80),
+            _getImageSmartWatch('m9'),
+          ],
+        )
+      ],
+    );
+  }
+
+  _getContainerLine(double int){
+    return Container(
+      width: 2,
+      height: int,
+      color: Colors.grey[200],
+    );
+  }
+
+  _getImageSmartWatch(String string) {
+    return Container(
+      width: 100,
+      height: 80,
+      margin: EdgeInsets.all(4),
+      child: Image(
+        image: AssetImage('images/$string.jpg'),
+        //fit: BoxFit.fill,
+      ),
+    );
+  }
+
+  getTextSmartWatch(
+      {EdgeInsetsGeometry? edgeInsets,
+      String? string,
+      double? FontSize,
+      FontWeight? FontWeight,
+      Color? ColorType,
+      TextDirection? DirectionType}) {
+    return Padding(
+      padding: edgeInsets!,
+      child: Text(
+        string!,
+        style: TextStyle(
+            fontWeight: FontWeight, fontSize: FontSize, color: ColorType),
+      ),
     );
   }
 }
