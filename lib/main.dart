@@ -16,6 +16,7 @@ class Application extends StatelessWidget {
   Widget _getMaterialApp() {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'vazir'),
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -51,7 +52,7 @@ class Application extends StatelessWidget {
   Widget _getSearchHead() {
     return Card(
       elevation: 0,
-      margin: EdgeInsets.only(top: 5,left: 8,right: 8,bottom: 8),
+      margin: EdgeInsets.only(top: 5, left: 8, right: 8, bottom: 8),
       color: Color.fromARGB(255, 240, 240, 240),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
@@ -151,7 +152,7 @@ class Application extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 8,left: 14,right: 14,bottom: 4),
+          padding: EdgeInsets.only(top: 8, left: 14, right: 14, bottom: 4),
           child: Image(
             image: AssetImage(image),
             width: 55,
@@ -160,7 +161,10 @@ class Application extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(bottom: 8),
-          child: Text(strings,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600),),
+          child: Text(
+            strings,
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     );
@@ -174,31 +178,148 @@ class Application extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Card(
-                  margin: EdgeInsets.all(14),
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  child: Container(
-                    height: 350,
-                    width: 170,
-                  ),
-                ),
-              ],
-            ),
+            child: _leftWidgetAmazingOffer(),
           ),
           Expanded(
             child: _rightWidgetAmazingOffer(),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _leftWidgetAmazingOffer() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Card(
+          margin: EdgeInsets.all(14),
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          child: Container(
+            height: 350,
+            width: 170,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 16, left: 24),
+                  child: Text(
+                    'شگفت‌انگیز اختصاصی اپ',
+                    style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.red),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Image(
+                    image: AssetImage('images/shoes.jpg'),
+                    width: 150,
+                    height: 150,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    'کفش زنانه چرم مدل پرستو کد 9954',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 11,
+                        color: Colors.black
+                    ),
+                    textDirection: TextDirection.rtl,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 18,top: 4),
+                  child: Text(
+                    'تنها 1 عدد در انبار باقیست',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                        color: Colors.red),
+                    textDirection: TextDirection.rtl,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 16, top: 12),
+                      child: Text(
+                        'تومان',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w800, fontSize: 10),
+                        textDirection: TextDirection.rtl,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 4, top: 10),
+                      child: Text(
+                        '835,000',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 12),
+                        textDirection: TextDirection.rtl,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 14),
+                      child: Card(
+                        color: Colors.red[600],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 8, top: 2),
+                            child: Text(
+                              '33%',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: 30),
+                  child: Text(
+                    '1,250,000',
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey[600],
+                        decoration: TextDecoration.lineThrough,
+                        decorationThickness: 2),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: 70,top: 15),
+                  child: Text(
+                    '02:48:28',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -229,7 +350,7 @@ class Application extends StatelessWidget {
           child: Text(
             ' < مشاهده همه',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 12,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
